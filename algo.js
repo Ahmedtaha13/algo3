@@ -1,32 +1,15 @@
-using System;
-using System.Linq;
-
-public class Program
-{
-    public static void Main()
-    {
-        Console.WriteLine(IsPalindrome("racecar"));
-        Console.WriteLine(IsPalindrome("hello")); 
-        Console.WriteLine(IsPalindrome("level")); 
-        Console.WriteLine(IsPalindrome("")); 
-        Console.WriteLine(IsPalindrome("a")); 
-    }
-
-    public static bool IsPalindrome(string word)
-    {
-        
-        if (string.IsNullOrEmpty(word) || word.Length == 1)
-        {
-            return true;
-        }
-
-       
-        if (word[0] != word[word.Length - 1])
-        {
-            return false;
-        }
-
-       
-        return IsPalindrome(word.Substring(1, word.Length - 2));
-    }
-}
+function IsPalindrome(s: string): boolean;
+var
+    i, len: integer;
+begin
+    len := length(s);
+    for i := 1 to len div 2 do
+    begin
+        if s[i] <> s[len - i + 1] then
+        begin
+            IsPalindrome := false;
+            exit;
+        end;
+    end;
+    IsPalindrome := true;
+end;
